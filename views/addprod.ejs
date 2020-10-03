@@ -1,0 +1,75 @@
+<%-include ('partials/header.ejs')%>
+        
+        <main>
+            <div class="container">
+                <div class="row">
+                    <h4>Product Table</h4> 
+                </div>
+                <hr>
+                <div class="row justify-content-around">
+                    <div class="col-md-3">
+                        <label for="custom-select">Show:</label>
+                        <select class="custom-select" id="show-num" name="show">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>       
+                    </div>
+                    <div class="col-md-3">
+                        <label for="input-group">Search:</label>
+                        <div class="input-group md-form form-sm form-2 pl-0">
+                            <input class="form-control my-0 py-0" type="search" placeholder="Search">
+                        </div>
+                    </div>
+                </div> 
+                <div class="row justify-content-center">
+                    <div class="col-md-11">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col" width="50%">Product Name</th>
+                                <th scope="col" width="20%">Sale Price</th>
+                                <th scope="col" width="20%">Added</th>
+                                <th scope="col" width="10%">Options</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row" id="prod-name">Catto</th>
+                                <td id="prod-price">1000</td>
+                                <td id="prod-date">01/08/2019</td>
+                                <td id="opt">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-info" id="info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-edit">Edit</button>
+                                      </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="pagination pull-right">
+                            <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            </li> 
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
+                <button type="button" class="btn btn-info btn-block">Add Product</button> 
+
+            </div>
+        </main>   
+    </body>
+</html>
