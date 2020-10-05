@@ -1,8 +1,8 @@
 <%-include ('partials/header.ejs')%>
         
         <main>
-            <div class="container">
-                <div class="row">
+            <div class="container shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="row justify-content-start pl-5 pt-3">
                     <h4>Product Table</h4> 
                 </div>
                 <hr>
@@ -18,10 +18,11 @@
                     <div class="col-md-3">
                         <label for="input-group">Search:</label>
                         <div class="input-group md-form form-sm form-2 pl-0">
-                            <input class="form-control my-0 py-0" type="search" placeholder="Search">
+                            <input class="form-control my-0 py-0" type="search" placeholder="Search product item">
                         </div>
                     </div>
                 </div> 
+<!-- Product Table -->
                 <div class="row justify-content-center">
                     <div class="col-md-11">
                         <table class="table table-bordered">
@@ -40,36 +41,170 @@
                                 <td id="prod-date">01/08/2019</td>
                                 <td id="opt">
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-info" id="info">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-edit">Edit</button>
-                                      </div>
+                                        <button type="button" class="btn btn-info" id="info" data-toggle="modal" data-target="#view-var"><i class="fas fa-info-circle"></i></button>
+                                        <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#edit-var">Edit</button>
+                                        <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-
-                        <ul class="pagination pull-right">
-                            <li class="page-item">
-                            <a class="page-link" href="#">
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                            </li> 
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                            <a class="page-link" href="#">
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>  
-                <button type="button" class="btn btn-info btn-block">Add Product</button> 
+<!-- Pagination -->
+                <div class="row justify-content-end">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li> 
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
 
+                </div>
+                <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#add-product">Add Product</button> 
             </div>
         </main>   
+  
+<!-- Modal Add Product -->
+        <div class="modal fade" id="add-product" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body col-12">
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="prod-name">Product</label>
+                            <input id="prod-name" class="form-control" type="text" placeholder="Input name">
+                        </div>
+                        <div class="form-group">
+                            <label for="prod-price">Price</label>
+                            <input id="prod-price" class="form-control" type="text" placeholder="Input price">
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="col-5">
+                                <div class="form-group">
+                                    <label for="variant">Variant</label>
+                                    <input id="variant" class="form-control" type="text" placeholder="Variant">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form-group">
+                                    <label for="qty">Quantity</label>
+                                    <input id="qty" class="form-control" type="text" placeholder="Qty">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <label for="del-var">Delete</label>
+                                <button type="button" class="btn" id="del-var"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <button type="button" class="btn btn-primary">Add Variant <i class="fas fa-plus-circle"></i></button>
+                        </div>
+                        <hr>
+                    </form>    
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add Product <i class="fas fa-plus-circle"></i> </button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+<!-- Modal Edit Variant --> 
+        <div class="modal fade" id="edit-var" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="itemLabel">Item Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body col-12">
+                    <form method="POST">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Product Name</th>
+                                    <td>Catto</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sale Price</th>
+                                    <td>560</td>
+                                    <td><button class="btn btn-info" type="button"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                            </tbody>
+                          </table>
+                          <table class="table">
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Variants</th>
+                                        <th scope="col">Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>SMALL</td>
+                                    <td>4</td>
+                                </tr>
+                            </tbody>
+                          </table>
+                    </form>    
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add Variant <i class="fas fa-plus-circle"></i> </button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+<!-- Modal View Variant --> 
+        <div class="modal fade" id="view-var" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="itemLabel">Item Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body col-12">
+                        <form method="POST">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Product Name</th>
+                                        <td>Catto</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sale Price</th>
+                                        <td>560</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table">
+                                <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Variants</th>
+                                            <th scope="col">Quantity</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>SMALL</td>
+                                        <td>4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,6 +1,11 @@
 <html>
     <head>
         <title>Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.css">
@@ -14,11 +19,15 @@
                         <span class="item-text">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/product" class="nav-link">
+                <li class="nav-item dropwdown" id="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">
                         <i class="fas fa-star"></i>
                         <span class="item-text">Product</span>
                     </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/addprod">Add/Edit Product</a>
+                        <a class="dropdown-item" href="/showprod">Show Product</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="/transaction" class="nav-link">

@@ -6,6 +6,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #eef2f3;
 }
 
 body ::-webkit-scrollbar{
@@ -25,12 +26,15 @@ main{
     padding: 1rem;
 }
 
+/*Header*/
 .navbar{
     width: 6rem;
     height: 100vh;
     position: fixed;
     background-color:#16262E;
+    transition: width 200ms ease;
 }
+
 
 .navbar-nav{
     list-style: none;
@@ -47,15 +51,31 @@ main{
 
 .nav-link{
     display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
     align-items: center;
-    justify-content: center;
     height: 5rem;
     color: #3C7A89;
     text-decoration: none;
     filter: grayscale(100%) opacity(0.7);
 }
+
+.item-text{
+    display: none;
+    margin-left: 1rem;
+}
+.fa-star .fa-tachometer-alt .fa-star{
+    min-width: 2rem;
+    margin: 0 1.5rem;
+    font-size: 20px;
+}
+
+.navbar:hover{
+    width: 14rem;
+}
+
+.navbar:hover .item-text{
+    display: block;
+}
+
 
 .nav-link:hover{
     filter: grayscale(0%) opacity(1);
@@ -63,13 +83,88 @@ main{
     color: #3C7A89;
 }
 
-.item-text{
+.dropdown-menu{
+    display: none;
+    position: relative;
+    left: 2rem;
+    width: 80%;
+    background-color: #1F4761;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu a{
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    color: #ffffff;
+    padding: 12px 16px;
+   
+}
+
+#dropdown:hover .dropdown-menu{
     display: block;
 }
-.fas{
-    min-width: 2rem;
-    margin: 0 1.5rem;
-    font-size: 30px;
+
+.dropdown-menu a:hover{
+    background-color: #288197;
+    color:  #0E2631;
 }
 
 
+/*Footer*/
+.site-footer{
+    background-color:#26272b;
+    padding:20px 0px 20px 0px;
+    margin-left: 0;
+    font-size:15px;
+    line-height:24px;
+    color:#737373;
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    min-width: 90%;
+}
+
+/*AddProduct*/
+
+.container{
+    background-color: #ffffff;
+    /* padding: 0 5px 0 5px; */
+    padding-bottom: 15px;
+}
+
+.row{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+
+.btn-edit{
+    background-color: #0E2631;
+    color: white;
+}
+
+.btn-edit:hover{
+    color:  white;
+    background-color: #2E4756;
+}
+
+.btn-group{
+    width: 70%;
+}
+
+td{
+    white-space: nowrap;
+}
+
+.fa-info-circle{
+    font-size: 14px; 
+}
+
+
+
+#del-var{
+    color:#e32f29;
+}

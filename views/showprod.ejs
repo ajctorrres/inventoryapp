@@ -1,8 +1,67 @@
 <%-include ('partials/header.ejs')%>
 
-        <main>
-           <h1>Product</h1>
-        </main>
+<main>
+    <div class="container shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="row justify-content-start pl-5 pt-3">
+            <h4>Product Table</h4> 
+        </div>
+        <hr>
+        <div class="row justify-content-around">
+            <div class="col-md-3">
+                <label for="custom-select">Show:</label>
+                <select class="custom-select" id="show-num" name="show">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>       
+            </div>
+            <div class="col-md-3">
+                <label for="input-group">Search:</label>
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-0" type="search" placeholder="Search product item">
+                </div>
+            </div>
+        </div> 
+<!-- Product Table -->
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col" >User</th>
+                        <th scope="col" >ID</th>
+                        <th scope="col" >Product Name</th>
+                        <th scope="col" >Sale Price</th>
+                        <th scope="col" >Variants</th>
+                        <th scope="col" >Date Added</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" id="user">Clerk</td>
+                        <td scope="row" id="prod-id">000001A</td>
+                        <td scope="row" id="prod-name">Catto</td>
+                        <td id="prod-price">1000</td>
+                        <td id="prod-price">SMALL<br>MEDIUM<br>LARGE</td>
+                        <td id="prod-date">01/08/2019</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+<!-- Pagination -->
+        <div class="row justify-content-end">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li> 
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+
+        </div>
+    </div>
+</main>
         
     </body>
 </html>

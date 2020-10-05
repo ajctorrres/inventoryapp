@@ -18,8 +18,12 @@ app.get('/', (req, res)=>{
     res.render('dash');
 })
 
-app.get('/product', (req, res)=>{
-    res.render('product');
+app.get('/addprod', (req, res)=>{
+    res.render('addprod');
+})
+
+app.get('/showprod', (req, res)=>{
+    res.render('showprod');
 })
 
 app.get('/transaction', (req, res)=>{
