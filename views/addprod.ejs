@@ -35,18 +35,20 @@
                             </tr>
                             </thead>
                             <tbody>
+                                <% prod.forEach(function(prod){%>
                             <tr>
-                                <th scope="row" id="prod-name">Catto</th>
-                                <td id="prod-price">1000</td>
-                                <td id="prod-date">01/08/2019</td>
+                                <th scope="row" id="prod-name"><%=prod.productName %></th>
+                                <td id="prod-price"><%=prod.unitPrice %></td>
+                                <td id="prod-date"><%=prod.dateAdded %></td>
                                 <td id="opt">
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-info" id="info" data-toggle="modal" data-target="#view-var"><i class="fas fa-info-circle"></i></button>
                                         <button type="button" class="btn btn-edit" data-toggle="modal" data-target="#edit-var">Edit</button>
-                                        <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        <a type="button" class="btn btn-danger" href="/delete?id=<%=prod.productId%>"><i class="fas fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
+                            <%})%>
                             </tbody>
                         </table>
                     </div>
@@ -71,45 +73,61 @@
             <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                <h5 class="modal-title">Add Product</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
                 <div class="modal-body col-12">
-                    <form method="POST">
+                    <form method="POST" id="prod-form" action="/addprod">
                         <div class="form-group">
                             <label for="prod-name">Product</label>
-                            <input id="prod-name" class="form-control" type="text" placeholder="Input name">
+                            <input id="prod-name" class="form-control" type="text" placeholder="Input name" name="product" required>
                         </div>
                         <div class="form-group">
                             <label for="prod-price">Price</label>
-                            <input id="prod-price" class="form-control" type="text" placeholder="Input price">
-                        </div>
-                        <div class="row justify-content-end">
-                            <div class="col-5">
-                                <div class="form-group">
-                                    <label for="variant">Variant</label>
-                                    <input id="variant" class="form-control" type="text" placeholder="Variant">
-                                </div>
-                            </div>
-                            <div class="col-5">
-                                <div class="form-group">
-                                    <label for="qty">Quantity</label>
-                                    <input id="qty" class="form-control" type="text" placeholder="Qty">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <label for="del-var">Delete</label>
-                                <button type="button" class="btn" id="del-var"><i class="fas fa-trash"></i></button>
-                            </div>
-                            <button type="button" class="btn btn-primary">Add Variant <i class="fas fa-plus-circle"></i></button>
+                            <input id="prod-price" class="form-control" type="text" placeholder="Input price" name="price" required>
                         </div>
                         <hr>
-                    </form>    
+                    </form> 
+                    
+                    <div class="form-group">
+                        <form id="addVariant" method="POST" action="/addprod">
+                            <table class="table table-bordered" id="variants">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Variant</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>
+                                        <select class="custom-select mr-sm-2" id="var-option" name="opt">
+                                            <option selected>Choose...</option>
+                                            <option value="Midnight Green">Midnight Green</option>
+                                            <option value="Silver">Silver</option>
+                                            <option value="Space Gray">Space Gray</option>
+                                            <option value="Gold">Gold</option>
+                                            <option value="Rose Gold">Rose Gold</option>
+                                            <option value="White">White</option>
+                                            <option value="Red">Red</option>
+                                      </select>
+                                    </td>
+                                    <td>
+                                        <input id="var-qty" class="form-control" type="text" placeholder="Qty" name="qty" required>   
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn" id="del-var"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <button type="submit" class="btn btn-primary" id="add-var">Add Variant <i class="fas fa-plus-circle"></i></button>
+                        </form>
+                    </div>   
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Add Product <i class="fas fa-plus-circle"></i> </button>
+                <button type="submit" class="btn btn-primary">Add Product <i class="fas fa-plus-circle"></i> </button>
                 </div>
             </div>
             </div>

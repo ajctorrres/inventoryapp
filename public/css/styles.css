@@ -164,7 +164,45 @@ td{
 }
 
 
-
 #del-var{
     color:#e32f29;
+}
+
+
+/*Login*/
+
+.container-login{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    align-items: center;
+    /* background: linear-gradient(#288197, #3C7A89); */
+    background: linear-gradient(to right, #2C3E50 0%, #2C3E50 50%, #25476a 50%, #25476a 100%);
+    width: 60%;
+    height: 70%;
+    margin: 5rem 0 0 17rem;
+    color: #ffffff;
+    font-family: 'Varela Round', sans-serif;
+    border-radius: 15px;
+}
+
+
+.form-login{
+    padding-right: 15px;
+}
+
+.form-login .form-control{
+    border-radius: 20px;
+}
+
+.fa-users{
+    font-size: 90px;
+    margin-bottom: 35px;
+}
+
+#log-btn{
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
 }
