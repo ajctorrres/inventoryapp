@@ -93,12 +93,28 @@ app.get('/addprod', (req, res)=>{
     });  
 })
 
-app.post('/addprod', urlEncodedParser, (req, res)=>{
-    connection.query('INSERT INTO product(productName, unitPrice, userId) VALUES ("'+req.body.prodName+'", '+req.body.price+', '+req.session.userID+')', (err)=>{
+// app.post('/add', urlEncodedParser, (req, res)=>{
+//     connection.query('INSERT INTO product(productName, unitPrice, userId) VALUES ("'+req.body.productname+'", '+req.body.productprice+', 1)', (err)=>{
+//         if(err) throw err;
+//         console.log(req.body.productname);
+//         res.redirect('/addprod');
+//     });
+// })
+
+app.post('/add', urlEncodedParser, (req, res)=>{
+    connection.query('INSERT INTO product(productName, unitPrice, userId) VALUES ("'+req.body.productname+'", '+req.body.productprice+', 1)', (err)=>{
         if(err) throw err;
-        res.redirect('/todo');
+        res.redirect('/addprod');
     });
-    console.log(req.session.userID);
+})
+
+app.post('/addvar', urlEncodedParser, (req, res)=>{
+    connection.query('SELECT productId FROM product WHERE productName = "'+req.body.productname+'"', (err, result)=>{
+        connection.query('INSERT INTO product_variant(variantDesc, qty, product_Id) VALUES ("'+req.body.opt+'", '+req.body.qty+', '+result+')', (err)=>{
+            res.redirect('/addprod');
+        });
+    }); 
+    console.log(result);
 })
 
 

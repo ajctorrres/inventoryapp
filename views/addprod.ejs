@@ -71,65 +71,66 @@
 <!-- Modal Add Product -->
         <div class="modal fade" id="add-product" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Add Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body col-12">
-                    <form method="POST" id="prod-form" action="/addprod">
-                        <div class="form-group">
-                            <label for="prod-name">Product</label>
-                            <input id="prod-name" class="form-control" type="text" placeholder="Input name" name="product" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="prod-price">Price</label>
-                            <input id="prod-price" class="form-control" type="text" placeholder="Input price" name="price" required>
-                        </div>
-                        <hr>
-                    </form> 
-                    
-                    <div class="form-group">
-                        <form id="addVariant" method="POST" action="/addprod">
-                            <table class="table table-bordered" id="variants">
-                                <thead>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Product</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body col-12">
+                        <form method="POST" id="prod-form" action="/add">
+                            <div class="form-group">
+                                <label for="prod-name">Product</label>
+                                <input id="prod-name" class="form-control" type="text" placeholder="Input name" name="productname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prod-price">Price</label>
+                                <input id="prod-price" class="form-control" type="text" placeholder="Input price" name="productprice" required>
+                            </div>
+                            <hr>  
+                            <!-- Variant -->
+                        <div class="form-group" >
+                            <form id="addVariant" method="POST" action="/addvar">
+                                <table class="table table-bordered" id="variants">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Variant</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Delete</th>
+                                        </tr>
+                                    </thead>
                                     <tr>
-                                        <th scope="col">Variant</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Delete</th>
+                                        <td>
+                                            <select class="custom-select mr-sm-2" id="var-option" name="opt">
+                                                <option selected>Choose...</option>
+                                                <option value="Midnight Green">Midnight Green</option>
+                                                <option value="Silver">Silver</option>
+                                                <option value="Space Gray">Space Gray</option>
+                                                <option value="Gold">Gold</option>
+                                                <option value="Rose Gold">Rose Gold</option>
+                                                <option value="White">White</option>
+                                                <option value="Red">Red</option>
+                                        </select>
+                                        </td>
+                                        <td>
+                                            <input id="var-qty" class="form-control" type="text" placeholder="Qty" name="qty" required>   
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn" id="del-var"><i class="fas fa-trash"></i></button>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tr>
-                                    <td>
-                                        <select class="custom-select mr-sm-2" id="var-option" name="opt">
-                                            <option selected>Choose...</option>
-                                            <option value="Midnight Green">Midnight Green</option>
-                                            <option value="Silver">Silver</option>
-                                            <option value="Space Gray">Space Gray</option>
-                                            <option value="Gold">Gold</option>
-                                            <option value="Rose Gold">Rose Gold</option>
-                                            <option value="White">White</option>
-                                            <option value="Red">Red</option>
-                                      </select>
-                                    </td>
-                                    <td>
-                                        <input id="var-qty" class="form-control" type="text" placeholder="Qty" name="qty" required>   
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn" id="del-var"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </table>
-                            <button type="submit" class="btn btn-primary" id="add-var">Add Variant <i class="fas fa-plus-circle"></i></button>
+                                </table>
+                                <button type="button" class="btn btn-primary add-var" id="add-var">Add Variant <i class="fas fa-plus-circle"></i></button>
+                            </form>
+                        </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Add Product <i class="fas fa-plus-circle"></i> </button>
+                            </div>
                         </form>
-                    </div>   
+                         
+                    </div>
                 </div>
-                <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Add Product <i class="fas fa-plus-circle"></i> </button>
-                </div>
-            </div>
             </div>
         </div>
 
